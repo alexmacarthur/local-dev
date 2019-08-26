@@ -23,3 +23,13 @@ function clc {
         copy_last_commit
     fi
 }
+
+# Format given PHP file(s) according to PSR-2.
+# Accepts multiple file paths.
+# Requires that php-cs-fixer be installed.
+function fphp {
+    for filePath in "$@"
+    do
+        php-cs-fixer fix $filePath --rules=@PSR2
+    done
+}
